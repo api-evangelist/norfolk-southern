@@ -11,11 +11,11 @@ created: '2025-03-01'
 modified: '2025-03-01'
 specificationVersion: '0.18'
 tags:
-  - Railroad
-  - Transportation
   - Freight
-  - Shipping
   - Logistics
+  - Railroad
+  - Shipping
+  - Transportation
 apis:
   - name: Norfolk Southern Shipment Status API
     description: >-
@@ -26,10 +26,10 @@ apis:
     humanURL: https://developer.nscorp.com/
     baseURL: https://api.nscorp.com
     tags:
+      - Freight
+      - Railroad
       - Shipment
       - Tracking
-      - Railroad
-      - Freight
     properties:
       - type: Documentation
         url: https://developer.nscorp.com/
@@ -43,10 +43,10 @@ apis:
     humanURL: https://developer.nscorp.com/
     baseURL: https://api.nscorp.com
     tags:
-      - Trip Plan
-      - Route
       - ETA
       - Railroad
+      - Route
+      - Trip Plan
     properties:
       - type: Documentation
         url: https://developer.nscorp.com/
@@ -59,8 +59,8 @@ apis:
     baseURL: https://api.nscorp.com
     tags:
       - Gate Receipts
-      - Terminal
       - Intermodal
+      - Terminal
     properties:
       - type: Documentation
         url: https://developer.nscorp.com/
