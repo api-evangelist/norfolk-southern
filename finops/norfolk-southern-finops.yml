@@ -1,5 +1,6 @@
 specification: FinOps Framework
 specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
 alignedWith:
   framework: FinOps Foundation Framework
   frameworkUrl: https://www.finops.org/framework/
@@ -8,10 +9,11 @@ alignedWith:
   dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
 provider: Norfolk Southern
 providerId: norfolk-southern
-publisherName: Norfolk Southern
-serviceCategory: API
+publisherName: Norfolk Southern Corporation
+serviceCategory: Freight Rail / Logistics
 created: '2026-05-04'
-modified: '2026-05-04'
+modified: '2026-05-05'
+reconciled: false
 tags:
   - Freight
   - Logistics
@@ -21,96 +23,66 @@ tags:
   - FinOps
   - Cost Management
   - FOCUS
-description: FinOps framework definition for the Norfolk Southern API surface. Provides a FOCUS-aligned
-  mapping for cost allocation, usage measurement, and unit-economics reporting across the provider's APIs.
+description: 'FOCUS-aligned FinOps for Norfolk Southern: API access is bundled with the underlying freight-rail
+  customer relationship and not invoiced separately. Cost dimensions are operational (integration build,
+  shipment volume) rather than per-call.'
+notes: Norfolk Southern does not invoice API consumers separately from their freight relationship.
+sources:
+  - https://developer.nscorp.com/
+  - https://www.nscorp.com/site/customers/
 principles:
   - name: Visibility
-    description: Make API consumption costs visible to engineering, product, and finance teams in near
-      real-time.
+    description: NS does not bill per-call. Track per-API-key request volume and shipment status polling
+      rates internally to ensure the integration scales with shipment volume.
   - name: Allocation
-    description: Tag every chargeable API call with the consuming team, environment, application, and
-      feature so cost can be allocated.
+    description: Allocate integration cost (engineering time, monitoring) to the consuming logistics
+      app or business unit. Tag NS API keys per-app for usage attribution.
   - name: Optimization
-    description: Continuously evaluate request patterns, caching, batching, and tier selection to reduce
-      cost per useful unit of work.
+    description: Cache shipment status responses; use webhooks where available rather than polling. Batch
+      Trip Plan and Gate Receipts queries by waybill rather than per-shipment to reduce request count.
   - name: Accountability
-    description: Establish budget owners and chargeback or showback flows for each consuming team.
-domains:
-  - name: Understand Usage and Cost
-    capabilities:
-      - Data Ingestion
-      - Allocation
-      - Reporting and Analytics
-      - Anomaly Management
-  - name: Quantify Business Value
-    capabilities:
-      - Planning and Estimating
-      - Forecasting
-      - Budgeting
-      - Benchmarking
-      - Unit Economics
-  - name: Optimize Usage and Cost
-    capabilities:
-      - Architecting for Cloud
-      - Rate Optimization
-      - Workload Optimization
-      - Cloud Sustainability
-      - Licensing and SaaS
-  - name: Manage the FinOps Practice
-    capabilities:
-      - FinOps Practice Operations
-      - FinOps Education and Enablement
-      - Invoicing and Chargeback
-      - Onboarding Workloads
-      - Intersecting Disciplines
+    description: Designate a logistics-IT owner for the NS ApiHub credential and integration health.
+      Reconcile shipment-tracking data quality with NS Customer Service quarterly.
 billingModel:
-  pricingCategory: Usage-Based
-  billingFrequency: Monthly
+  pricingCategory: Bundled with Freight Relationship
+  billingFrequency: None (bundled)
   billingCurrency: USD
   chargeCategories:
     - Usage
-    - Purchase
-    - Tax
-    - Credit
-    - Adjustment
-  chargeFrequency: Recurring
+  chargeFrequency: None
 focusColumns:
-  ServiceName: Norfolk Southern
-  ServiceCategory: Developer Tools / API
+  ServiceName: Norfolk Southern ApiHub
+  ServiceCategory: Freight Rail / Logistics
   ProviderName: Norfolk Southern
-  PublisherName: Norfolk Southern
-  InvoiceIssuerName: Norfolk Southern
-  PricingCategory: Usage-Based
+  PublisherName: Norfolk Southern Corporation
+  InvoiceIssuerName: Norfolk Southern Corporation (freight invoice; API not separately billed)
+  PricingCategory: Bundled
   PricingUnit: request
   BillingCurrency: USD
   ChargeCategory: Usage
 meters:
   - name: api_requests
-    description: Count of billable API requests
+    description: Operationally tracked API request count per key (not invoiced)
     unit: request
     aggregation: sum
     dimensions:
       - api
+      - api_key
       - endpoint
-      - tier
-      - region
-      - consumer
-  - name: data_egress
-    description: Bytes returned over the network in API responses
-    unit: GB
+  - name: shipment_status_polls
+    description: Shipment Status polls (track to optimize polling cadence)
+    unit: poll
     aggregation: sum
     dimensions:
-      - api
-      - region
-      - consumer
-  - name: compute_seconds
-    description: Server-side compute consumed by the request, where applicable
-    unit: second
+      - shipment_id
+  - name: trip_plan_lookups
+    description: Trip Plan lookups
+    unit: lookup
     aggregation: sum
-    dimensions:
-      - api
-      - endpoint
-      - tier
+  - name: gate_receipts_pulled
+    description: Gate Receipts retrieved
+    unit: receipt
+    aggregation: sum
 apis:
   - name: Norfolk Southern Shipment Status API
     baseURL: https://api.nscorp.com
@@ -120,7 +92,7 @@ apis:
       - Shipment
       - Tracking
     serviceName: Norfolk Southern Shipment Status API
-    serviceCategory: API
+    serviceCategory: Freight Rail
   - name: Norfolk Southern Trip Plan API
     baseURL: https://api.nscorp.com
     tags:
@@ -129,7 +101,7 @@ apis:
       - Route
       - Trip Plan
     serviceName: Norfolk Southern Trip Plan API
-    serviceCategory: API
+    serviceCategory: Freight Rail
   - name: Norfolk Southern Gate Receipts API
     baseURL: https://api.nscorp.com
     tags:
@@ -137,14 +109,14 @@ apis:
       - Intermodal
       - Terminal
     serviceName: Norfolk Southern Gate Receipts API
-    serviceCategory: API
+    serviceCategory: Freight Rail
 unitEconomics:
-  - name: Cost per 1K Requests
-    metric: billed_cost / (api_requests / 1000)
-    target: TBD
-  - name: Cost per Active Consumer
-    metric: billed_cost / active_consumers
-    target: TBD
+  - name: Polls per shipment
+    metric: shipment_status_polls / active_shipments
+    target: minimize via webhooks where available
+  - name: Integration cost per shipment
+    metric: integration_engineering_cost / shipments_tracked
+    target: declining over time via reuse
 maintainers:
   - FN: API Evangelist
     url: https://apievangelist.com
