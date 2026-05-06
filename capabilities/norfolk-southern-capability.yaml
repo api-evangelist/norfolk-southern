@@ -1,0 +1,169 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Norfolk Southern Shipment Status API
+  description: The Norfolk Southern Shipment Status API provides real-time visibility into rail shipment status, including
+    current location, ETA, commodity details, origin, and destination. Part of the Norfolk Southern API Resource Platform
+    (ApiHub).
+  tags:
+  - Norfolk
+  - Southern
+  - API
+  created: '2026-05-06'
+  modified: '2026-05-06'
+capability:
+  consumes:
+  - type: http
+    namespace: norfolk-southern
+    baseUri: https://api.nscorp.com
+    description: Norfolk Southern Shipment Status API HTTP API.
+    resources:
+    - name: shipments-status
+      path: /shipments/status
+      operations:
+      - name: getshipmentstatus
+        method: GET
+        description: Get Shipment Status
+        inputParameters:
+        - name: shipmentId
+          in: query
+          type: string
+          required: true
+          description: The unique identifier for the shipment.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: shipments-tripplan
+      path: /shipments/tripplan
+      operations:
+      - name: gettripplan
+        method: GET
+        description: Get Trip Plan
+        inputParameters:
+        - name: shipmentId
+          in: query
+          type: string
+          required: true
+          description: The unique identifier for the shipment.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: gatereceipts
+      path: /gatereceipts
+      operations:
+      - name: getgatereceipts
+        method: GET
+        description: Get Gate Receipts
+        inputParameters:
+        - name: terminalId
+          in: query
+          type: string
+          description: The terminal identifier.
+        - name: equipmentId
+          in: query
+          type: string
+          description: The equipment identifier.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    port: 8080
+    namespace: norfolk-southern-rest
+    description: REST adapter for Norfolk Southern Shipment Status API.
+    resources:
+    - path: /shipments/status
+      name: getshipmentstatus
+      operations:
+      - method: GET
+        name: getshipmentstatus
+        description: Get Shipment Status
+        call: norfolk-southern.getshipmentstatus
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /shipments/tripplan
+      name: gettripplan
+      operations:
+      - method: GET
+        name: gettripplan
+        description: Get Trip Plan
+        call: norfolk-southern.gettripplan
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /gatereceipts
+      name: getgatereceipts
+      operations:
+      - method: GET
+        name: getgatereceipts
+        description: Get Gate Receipts
+        call: norfolk-southern.getgatereceipts
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9090
+    namespace: norfolk-southern-mcp
+    transport: http
+    description: MCP adapter for Norfolk Southern Shipment Status API for AI agent use.
+    tools:
+    - name: getshipmentstatus
+      description: Get Shipment Status
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: norfolk-southern.getshipmentstatus
+      with:
+        shipmentId: tools.shipmentId
+      inputParameters:
+      - name: shipmentId
+        type: string
+        description: The unique identifier for the shipment.
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: gettripplan
+      description: Get Trip Plan
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: norfolk-southern.gettripplan
+      with:
+        shipmentId: tools.shipmentId
+      inputParameters:
+      - name: shipmentId
+        type: string
+        description: The unique identifier for the shipment.
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getgatereceipts
+      description: Get Gate Receipts
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: norfolk-southern.getgatereceipts
+      with:
+        terminalId: tools.terminalId
+        equipmentId: tools.equipmentId
+      inputParameters:
+      - name: terminalId
+        type: string
+        description: The terminal identifier.
+      - name: equipmentId
+        type: string
+        description: The equipment identifier.
+      outputParameters:
+      - type: object
+        mapping: $.
