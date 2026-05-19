@@ -1,0 +1,77 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Norfolk Southern Shipment Status API — Trip Plan
+  description: 'Norfolk Southern Shipment Status API — Trip Plan. 1 operations. Lead operation: Get Trip Plan. Self-contained
+    Naftiko capability covering one Norfolk Southern business surface.'
+  tags:
+  - Norfolk Southern
+  - Trip Plan
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    NORFOLK_SOUTHERN_API_KEY: NORFOLK_SOUTHERN_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: shipment-status-trip-plan
+    baseUri: https://api.nscorp.com
+    description: Norfolk Southern Shipment Status API — Trip Plan business capability. Self-contained, no shared references.
+    resources:
+    - name: shipments-tripplan
+      path: /shipments/tripplan
+      operations:
+      - name: gettripplan
+        method: GET
+        description: Get Trip Plan
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: shipmentId
+          in: query
+          type: string
+          description: The unique identifier for the shipment.
+          required: true
+  exposes:
+  - type: rest
+    namespace: shipment-status-trip-plan-rest
+    port: 8080
+    description: REST adapter for Norfolk Southern Shipment Status API — Trip Plan. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/shipments/tripplan
+      name: shipments-tripplan
+      description: REST surface for shipments-tripplan.
+      operations:
+      - method: GET
+        name: gettripplan
+        description: Get Trip Plan
+        call: shipment-status-trip-plan.gettripplan
+        with:
+          shipmentId: rest.shipmentId
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: shipment-status-trip-plan-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Norfolk Southern Shipment Status API — Trip Plan. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: get-trip-plan
+      description: Get Trip Plan
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: shipment-status-trip-plan.gettripplan
+      with:
+        shipmentId: tools.shipmentId
+      outputParameters:
+      - type: object
+        mapping: $.

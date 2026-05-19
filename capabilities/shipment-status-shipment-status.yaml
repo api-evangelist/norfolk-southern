@@ -1,0 +1,77 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Norfolk Southern Shipment Status API — Shipment Status
+  description: 'Norfolk Southern Shipment Status API — Shipment Status. 1 operations. Lead operation: Get Shipment Status.
+    Self-contained Naftiko capability covering one Norfolk Southern business surface.'
+  tags:
+  - Norfolk Southern
+  - Shipment Status
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    NORFOLK_SOUTHERN_API_KEY: NORFOLK_SOUTHERN_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: shipment-status-shipment-status
+    baseUri: https://api.nscorp.com
+    description: Norfolk Southern Shipment Status API — Shipment Status business capability. Self-contained, no shared references.
+    resources:
+    - name: shipments-status
+      path: /shipments/status
+      operations:
+      - name: getshipmentstatus
+        method: GET
+        description: Get Shipment Status
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: shipmentId
+          in: query
+          type: string
+          description: The unique identifier for the shipment.
+          required: true
+  exposes:
+  - type: rest
+    namespace: shipment-status-shipment-status-rest
+    port: 8080
+    description: REST adapter for Norfolk Southern Shipment Status API — Shipment Status. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/shipments/status
+      name: shipments-status
+      description: REST surface for shipments-status.
+      operations:
+      - method: GET
+        name: getshipmentstatus
+        description: Get Shipment Status
+        call: shipment-status-shipment-status.getshipmentstatus
+        with:
+          shipmentId: rest.shipmentId
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: shipment-status-shipment-status-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Norfolk Southern Shipment Status API — Shipment Status. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: get-shipment-status
+      description: Get Shipment Status
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: shipment-status-shipment-status.getshipmentstatus
+      with:
+        shipmentId: tools.shipmentId
+      outputParameters:
+      - type: object
+        mapping: $.
