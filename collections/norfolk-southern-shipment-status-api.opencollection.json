@@ -1,0 +1,97 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Norfolk Southern Shipment Status API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Shipment Status",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Shipment Status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.nscorp.com/shipments/status",
+            "params": [
+              {
+                "name": "shipmentId",
+                "value": "",
+                "type": "query",
+                "description": "The unique identifier for the shipment."
+              }
+            ]
+          },
+          "docs": "Retrieve the current status of a rail shipment including location, ETA, commodity, origin, and destination details."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Trip Plan",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Trip Plan",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.nscorp.com/shipments/tripplan",
+            "params": [
+              {
+                "name": "shipmentId",
+                "value": "",
+                "type": "query",
+                "description": "The unique identifier for the shipment."
+              }
+            ]
+          },
+          "docs": "Track a shipment's progress on its planned route with current ETA, future movements, and completed movements."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Gate Receipts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Gate Receipts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.nscorp.com/gatereceipts",
+            "params": [
+              {
+                "name": "terminalId",
+                "value": "",
+                "type": "query",
+                "description": "The terminal identifier."
+              },
+              {
+                "name": "equipmentId",
+                "value": "",
+                "type": "query",
+                "description": "The equipment identifier."
+              }
+            ]
+          },
+          "docs": "Access gate receipt data, terminal and driver information, and pickup numbers for equipment."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

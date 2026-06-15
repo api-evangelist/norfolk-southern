@@ -1,0 +1,492 @@
+{
+  "item": [
+    {
+      "id": "914ee8fa-6a41-4c7e-a4e2-8fe7358627dd",
+      "name": "Shipment Status",
+      "description": {
+        "content": "Real-time shipment location and status tracking.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "72ea6adb-82d7-417e-8a1a-8513a41e3670",
+          "name": "Get Shipment Status",
+          "request": {
+            "name": "Get Shipment Status",
+            "description": {
+              "content": "Retrieve the current status of a rail shipment including location, ETA, commodity, origin, and destination details.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "shipments",
+                "status"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "shipmentId",
+                  "value": "<string>",
+                  "description": "(Required) The unique identifier for the shipment."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "aa36b295-1101-409f-9dbc-ca1202aba9d2",
+              "name": "Shipment status returned successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shipments",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "shipmentId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"shipmentId\": \"string\",\n  \"status\": \"string\",\n  \"currentLocation\": \"string\",\n  \"eta\": \"2025-06-22T09:12:58.920Z\",\n  \"origin\": \"string\",\n  \"destination\": \"string\",\n  \"commodity\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1af4746a-c1d2-401a-85e6-dededa73cc34",
+              "name": "Unauthorized.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shipments",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "shipmentId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8979b9a6-e524-4cb3-ac38-a6b61806df13",
+              "name": "Shipment not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shipments",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "shipmentId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "e293d4c4-b13e-49b0-9155-7365b3404d0f",
+      "name": "Trip Plan",
+      "description": {
+        "content": "Shipment route progress and ETA tracking.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4507f1e4-57c3-4e38-8b4f-f22f0b69ffe7",
+          "name": "Get Trip Plan",
+          "request": {
+            "name": "Get Trip Plan",
+            "description": {
+              "content": "Track a shipment's progress on its planned route with current ETA, future movements, and completed movements.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "shipments",
+                "tripplan"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "shipmentId",
+                  "value": "<string>",
+                  "description": "(Required) The unique identifier for the shipment."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "85361ee1-6204-4692-b19a-2069855f47c5",
+              "name": "Trip plan returned successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shipments",
+                    "tripplan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "shipmentId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"shipmentId\": \"string\",\n  \"eta\": \"1983-04-17T08:20:21.709Z\",\n  \"completedMovements\": [\n    {\n      \"location\": \"string\",\n      \"timestamp\": \"1975-12-03T04:28:25.871Z\",\n      \"event\": \"string\"\n    },\n    {\n      \"location\": \"string\",\n      \"timestamp\": \"2010-09-17T17:05:18.134Z\",\n      \"event\": \"string\"\n    }\n  ],\n  \"futureMovements\": [\n    {\n      \"location\": \"string\",\n      \"estimatedTime\": \"2025-05-11T07:43:45.384Z\",\n      \"event\": \"string\"\n    },\n    {\n      \"location\": \"string\",\n      \"estimatedTime\": \"1991-06-29T08:36:43.033Z\",\n      \"event\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "38c93cc1-5aec-41b7-bac3-9c786af38e33",
+              "name": "Unauthorized.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shipments",
+                    "tripplan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "shipmentId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "81c9cf35-d94b-4505-af4c-779b87773d74",
+              "name": "Shipment not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shipments",
+                    "tripplan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "shipmentId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "a1f5f240-01fd-4da6-a4e1-00f763ccd085",
+      "name": "Gate Receipts",
+      "description": {
+        "content": "Terminal gate receipt data and equipment information.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e7e50a90-17cf-4342-ba0c-c778080e8093",
+          "name": "Get Gate Receipts",
+          "request": {
+            "name": "Get Gate Receipts",
+            "description": {
+              "content": "Access gate receipt data, terminal and driver information, and pickup numbers for equipment.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "gatereceipts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "terminalId",
+                  "value": "<string>",
+                  "description": "The terminal identifier."
+                },
+                {
+                  "disabled": false,
+                  "key": "equipmentId",
+                  "value": "<string>",
+                  "description": "The equipment identifier."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c15e8adf-f843-4368-9efc-91802ba78a82",
+              "name": "Gate receipts returned successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gatereceipts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "terminalId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "equipmentId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"gateReceipts\": [\n    {\n      \"receiptId\": \"string\",\n      \"terminal\": \"string\",\n      \"driverInfo\": {\n        \"name\": \"string\",\n        \"id\": \"string\"\n      },\n      \"pickupNumber\": \"string\",\n      \"equipmentId\": \"string\",\n      \"timestamp\": \"2000-08-28T18:30:12.413Z\"\n    },\n    {\n      \"receiptId\": \"string\",\n      \"terminal\": \"string\",\n      \"driverInfo\": {\n        \"name\": \"string\",\n        \"id\": \"string\"\n      },\n      \"pickupNumber\": \"string\",\n      \"equipmentId\": \"string\",\n      \"timestamp\": \"1981-12-02T23:48:00.838Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b0c0c8c9-625f-4c5d-9601-02e4c92b6ed4",
+              "name": "Unauthorized.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gatereceipts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "terminalId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "equipmentId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.nscorp.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "c9ddb83e-5c6e-4178-a1cd-79b7323964ab",
+    "name": "Norfolk Southern Shipment Status API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Norfolk Southern Shipment Status API provides real-time visibility into rail shipment status, including current location, ETA, commodity details, origin, and destination. Part of the Norfolk Southern API Resource Platform (ApiHub).\n\nContact Support:\n Name: Norfolk Southern CS Help Desk\n Email: CSHelpDesk@NSCORP.COM",
+      "type": "text/plain"
+    }
+  }
+}
