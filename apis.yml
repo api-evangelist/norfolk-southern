@@ -4,7 +4,7 @@ description: >-
   Norfolk Southern Corporation is one of the nation's premier transportation companies, operating approximately 19,300
   route miles in 22 states and the District of Columbia. Norfolk Southern offers an API Resource Platform (ApiHub)
   providing real-time visibility into shipment status, trip plans, and gate receipts.
-image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 url: https://raw.githubusercontent.com/api-evangelist/norfolk-southern/refs/heads/main/apis.yml
 created: '2025-03-01'
 modified: '2026-05-19'
@@ -22,7 +22,7 @@ apis:
     description: >-
       Pinpoint the current location and ETA for shipments and access details such as commodity, origin, and destination
       to proactively plan and staff delivery.
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://developer.nscorp.com/
     baseURL: https://api.nscorp.com
     tags:
@@ -38,7 +38,7 @@ apis:
   - aid: norfolk-southern:trip-plan
     name: Norfolk Southern Trip Plan API
     description: Track a shipment's progress on its planned route with its current ETA, future movements, and completed movements.
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://developer.nscorp.com/
     baseURL: https://api.nscorp.com
     tags:
@@ -52,7 +52,7 @@ apis:
   - aid: norfolk-southern:gate-receipts
     name: Norfolk Southern Gate Receipts API
     description: Access gate receipt data, terminal, and driver information, as well as the pickup numbers for equipment.
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://developer.nscorp.com/
     baseURL: https://api.nscorp.com
     tags:
