@@ -1,0 +1,72 @@
+openapi: 3.1.0
+info:
+  title: Norfolk Southern Shipment Status Gate Receipts API
+  description: The Norfolk Southern Shipment Status API provides real-time visibility into rail shipment status, including current location, ETA, commodity details, origin, and destination. Part of the Norfolk Southern API Resource Platform (ApiHub).
+  version: 1.0.0
+  contact:
+    name: Norfolk Southern CS Help Desk
+    email: CSHelpDesk@NSCORP.COM
+    url: https://developer.nscorp.com/
+  license:
+    name: Proprietary
+    url: https://www.norfolksouthern.com/
+servers:
+- url: https://api.nscorp.com
+  description: Production
+tags:
+- name: Gate Receipts
+  description: Terminal gate receipt data and equipment information.
+paths:
+  /gatereceipts:
+    get:
+      operationId: getGateReceipts
+      summary: Get Gate Receipts
+      description: Access gate receipt data, terminal and driver information, and pickup numbers for equipment.
+      tags:
+      - Gate Receipts
+      parameters:
+      - name: terminalId
+        in: query
+        required: false
+        description: The terminal identifier.
+        schema:
+          type: string
+      - name: equipmentId
+        in: query
+        required: false
+        description: The equipment identifier.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Gate receipts returned successfully.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  gateReceipts:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        receiptId:
+                          type: string
+                        terminal:
+                          type: string
+                        driverInfo:
+                          type: object
+                          properties:
+                            name:
+                              type: string
+                            id:
+                              type: string
+                        pickupNumber:
+                          type: string
+                        equipmentId:
+                          type: string
+                        timestamp:
+                          type: string
+                          format: date-time
+        '401':
+          description: Unauthorized.

@@ -1,0 +1,74 @@
+openapi: 3.1.0
+info:
+  title: Norfolk Southern Shipment Status Gate Receipts Trip Plan API
+  description: The Norfolk Southern Shipment Status API provides real-time visibility into rail shipment status, including current location, ETA, commodity details, origin, and destination. Part of the Norfolk Southern API Resource Platform (ApiHub).
+  version: 1.0.0
+  contact:
+    name: Norfolk Southern CS Help Desk
+    email: CSHelpDesk@NSCORP.COM
+    url: https://developer.nscorp.com/
+  license:
+    name: Proprietary
+    url: https://www.norfolksouthern.com/
+servers:
+- url: https://api.nscorp.com
+  description: Production
+tags:
+- name: Trip Plan
+  description: Shipment route progress and ETA tracking.
+paths:
+  /shipments/tripplan:
+    get:
+      operationId: getTripPlan
+      summary: Get Trip Plan
+      description: Track a shipment's progress on its planned route with current ETA, future movements, and completed movements.
+      tags:
+      - Trip Plan
+      parameters:
+      - name: shipmentId
+        in: query
+        required: true
+        description: The unique identifier for the shipment.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Trip plan returned successfully.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  shipmentId:
+                    type: string
+                  eta:
+                    type: string
+                    format: date-time
+                  completedMovements:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        location:
+                          type: string
+                        timestamp:
+                          type: string
+                          format: date-time
+                        event:
+                          type: string
+                  futureMovements:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        location:
+                          type: string
+                        estimatedTime:
+                          type: string
+                          format: date-time
+                        event:
+                          type: string
+        '401':
+          description: Unauthorized.
+        '404':
+          description: Shipment not found.
