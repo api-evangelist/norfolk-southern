@@ -1,0 +1,18 @@
+{
+  "provider": "norfolk-southern",
+  "sources": [
+    "norfolk-southern-gate-receipts-api-openapi.yml",
+    "norfolk-southern-shipment-status-api-openapi.yml",
+    "norfolk-southern-trip-plan-api-openapi.yml"
+  ],
+  "outputs": [
+    "norfolk-southern-gate-receipts-api-openapi.yml",
+    "norfolk-southern-shipment-status-api-openapi.yml",
+    "norfolk-southern-trip-plan-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
