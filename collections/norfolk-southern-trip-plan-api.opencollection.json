@@ -1,24 +1,24 @@
 {
   "opencollection": "1.0.0",
   "info": {
-    "name": "Norfolk Southern Gate Receipts Shipment Status API",
+    "name": "Norfolk Southern Shipment Status Gate Receipts Trip Plan API",
     "version": "1.0.0"
   },
   "items": [
     {
       "info": {
-        "name": "Shipment Status",
+        "name": "Trip Plan",
         "type": "folder"
       },
       "items": [
         {
           "info": {
-            "name": "Get Shipment Status",
+            "name": "Get Trip Plan",
             "type": "http"
           },
           "http": {
             "method": "GET",
-            "url": "https://api.nscorp.com/shipments/status",
+            "url": "https://api.nscorp.com/shipments/tripplan",
             "params": [
               {
                 "name": "shipmentId",
@@ -28,7 +28,7 @@
               }
             ]
           },
-          "docs": "Retrieve the current status of a rail shipment including location, ETA, commodity, origin, and destination details."
+          "docs": "Track a shipment's progress on its planned route with current ETA, future movements, and completed movements."
         }
       ]
     }

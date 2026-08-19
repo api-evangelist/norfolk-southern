@@ -1,26 +1,26 @@
 {
   "item": [
     {
-      "id": "e39f04e7-ccb9-446a-bc79-492c8a00920c",
-      "name": "Shipment Status",
+      "id": "cfb0fdf1-5f55-4cec-81f9-65758309a06f",
+      "name": "Trip Plan",
       "description": {
-        "content": "Real-time shipment location and status tracking.",
+        "content": "Shipment route progress and ETA tracking.",
         "type": "text/plain"
       },
       "item": [
         {
-          "id": "3fe57254-3840-4db4-b7b3-d7f75ab965d6",
-          "name": "Get Shipment Status",
+          "id": "03afd46b-353b-44ba-ac7f-66f4ee6fc916",
+          "name": "Get Trip Plan",
           "request": {
-            "name": "Get Shipment Status",
+            "name": "Get Trip Plan",
             "description": {
-              "content": "Retrieve the current status of a rail shipment including location, ETA, commodity, origin, and destination details.",
+              "content": "Track a shipment's progress on its planned route with current ETA, future movements, and completed movements.",
               "type": "text/plain"
             },
             "url": {
               "path": [
                 "shipments",
-                "status"
+                "tripplan"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -46,13 +46,13 @@
           },
           "response": [
             {
-              "id": "2d646317-4068-4537-811b-4a53931ca736",
-              "name": "Shipment status returned successfully.",
+              "id": "20b92d26-fce2-4228-8ceb-205a4a1d819e",
+              "name": "Trip plan returned successfully.",
               "originalRequest": {
                 "url": {
                   "path": [
                     "shipments",
-                    "status"
+                    "tripplan"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -82,18 +82,18 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"shipmentId\": \"string\",\n  \"status\": \"string\",\n  \"currentLocation\": \"string\",\n  \"eta\": \"1986-04-19T13:30:50.043Z\",\n  \"origin\": \"string\",\n  \"destination\": \"string\",\n  \"commodity\": \"string\"\n}",
+              "body": "{\n  \"shipmentId\": \"string\",\n  \"eta\": \"1994-12-03T14:09:10.958Z\",\n  \"completedMovements\": [\n    {\n      \"location\": \"string\",\n      \"timestamp\": \"1967-05-17T05:21:33.899Z\",\n      \"event\": \"string\"\n    },\n    {\n      \"location\": \"string\",\n      \"timestamp\": \"2021-06-09T22:23:14.203Z\",\n      \"event\": \"string\"\n    }\n  ],\n  \"futureMovements\": [\n    {\n      \"location\": \"string\",\n      \"estimatedTime\": \"2002-03-09T18:38:34.826Z\",\n      \"event\": \"string\"\n    },\n    {\n      \"location\": \"string\",\n      \"estimatedTime\": \"1967-12-16T01:52:49.722Z\",\n      \"event\": \"string\"\n    }\n  ]\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "f14f067f-d368-4c14-8e41-48c7d79d4854",
+              "id": "6b724050-6ae6-4619-a3bd-63b7cae82463",
               "name": "Unauthorized.",
               "originalRequest": {
                 "url": {
                   "path": [
                     "shipments",
-                    "status"
+                    "tripplan"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -122,13 +122,13 @@
               "_postman_previewlanguage": "text"
             },
             {
-              "id": "8bda73e5-6e35-4b85-badb-69fbf472afbd",
+              "id": "913d6662-bf12-4c19-82b3-b0dd990c2023",
               "name": "Shipment not found.",
               "originalRequest": {
                 "url": {
                   "path": [
                     "shipments",
-                    "status"
+                    "tripplan"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -175,8 +175,8 @@
     }
   ],
   "info": {
-    "_postman_id": "b4cca586-8781-4195-ae7e-22a7a77ae3b1",
-    "name": "Norfolk Southern Gate Receipts Shipment Status API",
+    "_postman_id": "cee94d4f-15fd-4b53-9b27-fba615c0e1ca",
+    "name": "Norfolk Southern Shipment Status Gate Receipts Trip Plan API",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {
       "content": "The Norfolk Southern Shipment Status API provides real-time visibility into rail shipment status, including current location, ETA, commodity details, origin, and destination. Part of the Norfolk Southern API Resource Platform (ApiHub).\n\nContact Support:\n Name: Norfolk Southern CS Help Desk\n Email: CSHelpDesk@NSCORP.COM",

@@ -1,0 +1,43 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Norfolk Southern Shipment Status Gate Receipts API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Gate Receipts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Gate Receipts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.nscorp.com/gatereceipts",
+            "params": [
+              {
+                "name": "terminalId",
+                "value": "",
+                "type": "query",
+                "description": "The terminal identifier."
+              },
+              {
+                "name": "equipmentId",
+                "value": "",
+                "type": "query",
+                "description": "The equipment identifier."
+              }
+            ]
+          },
+          "docs": "Access gate receipt data, terminal and driver information, and pickup numbers for equipment."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
