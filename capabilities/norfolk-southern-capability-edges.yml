@@ -1,0 +1,34 @@
+slug: norfolk-southern
+provider: Norfolk Southern
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Transportation & Logistics
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 2
+edges:
+- tag: Shipment Status
+  spec_file: norfolk-southern-shipment-status-api-openapi.yml
+  capability_id: BC-2510.20
+  capability_id_l1: BC-2510
+  capability_name: Shipment Tracking Management
+  confidence: 0.9
+  evidence: provides real-time visibility into rail shipment status, including current location, ETA,
+    commodity details, origin, and destination
+  reason: GET /shipments/status returns current shipment location and status across the rail move — squarely
+    Shipment Tracking Management within shipment visibility.
+- tag: Trip Plan
+  spec_file: norfolk-southern-trip-plan-api-openapi.yml
+  capability_id: BC-2510
+  capability_id_l1: BC-2510
+  capability_name: Shipment Visibility & Tracking Management
+  confidence: 0.7
+  evidence: GET /shipments/tripplan  getTripPlan  Get Trip Plan
+  reason: Trip plan exposes the planned itinerary and expected milestones/ETA for a rail shipment, part
+    of shipment visibility; ambiguous between tracking and ETA prediction sub-capabilities so L1 only.

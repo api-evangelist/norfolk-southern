@@ -107,6 +107,9 @@ apis:
   - type: Documentation
     url: https://developer.nscorp.com/
 common:
+  - type: CapabilityMap
+    url: capabilities/norfolk-southern-capability-edges.yml
+    name: Norfolk Southern Business Capability Map
   - type: AgenticAccess
     url: agentic-access/norfolk-southern-agentic-access.yml
   - type: DomainSecurity
