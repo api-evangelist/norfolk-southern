@@ -1,7 +1,9 @@
 ---
 title: How Norfolk Southern is Using AI to Help 'Move the US ...
 url: https://www.innovationleader.com/transportation/how-norfolk-southern-is-using-ai-to-help-move-the-us-economy/
-date: '2026-05-25'
+published: ''
+date_basis: harvested
+harvested: '2026-05-25'
 query: '"Norfolk Southern" press release artificial intelligence'
 position: 2
 source: serpapi-google

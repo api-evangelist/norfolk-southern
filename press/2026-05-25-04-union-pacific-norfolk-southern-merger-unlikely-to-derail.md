@@ -1,7 +1,9 @@
 ---
 title: Union Pacific-Norfolk Southern Merger Unlikely to Derail ...
 url: https://www.americanactionforum.org/press-release/union-pacific-norfolk-southern-merger-unlikely-to-derail-competition/
-date: '2026-05-25'
+published: ''
+date_basis: harvested
+harvested: '2026-05-25'
 query: '"Norfolk Southern" press release artificial intelligence'
 position: 4
 source: serpapi-google

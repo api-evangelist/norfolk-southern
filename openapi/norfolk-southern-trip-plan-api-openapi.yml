@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Norfolk Southern Shipment Status Gate Receipts Trip Plan API
+  title: Norfolk Southern Shipment Status Trip Plan API
   description: The Norfolk Southern Shipment Status API provides real-time visibility into rail shipment status, including current location, ETA, commodity details, origin, and destination. Part of the Norfolk Southern API Resource Platform (ApiHub).
   version: 1.0.0
   contact:
