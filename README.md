@@ -1,4 +1,4 @@
-# Norfolk Southern (norfolk-southern)
+# Norfolk Southern
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,94 +66,118 @@
 
 Norfolk Southern Corporation is one of the nation's premier transportation companies, operating approximately 19,300 route miles in 22 states and the District of Columbia. Norfolk Southern offers an API Resource Platform (ApiHub) providing real-time visibility into shipment status, trip plans, and gate receipts.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/norfolk-southern/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/norfolk-southern/refs/heads/main/apis.yml)
+**Areas:** Freight · Logistics · Railroad · Shipping · Transportation · Fortune 500
 
-## Tags
+## Norfolk Southern on APIs.io
 
-- Freight
-- Logistics
-- Railroad
-- Shipping
-- Transportation
+Everything profiled for Norfolk Southern is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/norfolk-southern/](https://apis.io/providers/norfolk-southern/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (5)
 
-- **Created:** 2025-03-01
-- **Modified:** 2026-05-19
+- [Norfolk Southern Trip Plan API](https://apis.io/apis/norfolk-southern/trip-plan/) — Track a shipment's progress on its planned route with its current ETA, future movements, and completed movements.
+- [Norfolk Southern Gate Receipts API](https://apis.io/apis/norfolk-southern/gate-receipts/) — Access gate receipt data, terminal, and driver information, as well as the pickup numbers for equipment.
+- [Norfolk Southern Gate Receipts API](https://apis.io/apis/norfolk-southern/norfolk-southern-gate-receipts-api/) — Terminal gate receipt data and equipment information.
+- [Norfolk Southern Shipment Status API](https://apis.io/apis/norfolk-southern/norfolk-southern-shipment-status-api/) — Real-time shipment location and status tracking.
+- [Norfolk Southern Trip Plan API](https://apis.io/apis/norfolk-southern/norfolk-southern-trip-plan-api/) — Shipment route progress and ETA tracking.
 
-## APIs
+### Published properties
 
-### Norfolk Southern Shipment Status API
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-Pinpoint the current location and ETA for shipments and access details such as commodity, origin, and destination to proactively plan and staff delivery.
+#### Agentic access (1)
 
-- **Human URL:** [https://developer.nscorp.com/](https://developer.nscorp.com/)
-- **Base URL:** `https://api.nscorp.com`
+Which operations an agent can call, which act, and which need a human in the loop.
 
-#### Tags
+- [Norfolk Southern Agentic Access](https://apis.io/agentic-access/norfolk-southern/norfolk-southern-agentic-access/)
 
-- Freight
-- Railroad
-- Shipment
-- Tracking
+#### Collections (3)
 
-#### Properties
+Postman and Open Collection request collections.
 
-- [Documentation](https://developer.nscorp.com/)
-- [OpenAPI](openapi/norfolk-southern-shipment-status-api.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/norfolk-southern-shipment-status-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/norfolk-southern-shipment-status-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Norfolk Southern Shipment Status Gate Receipts API](https://apis.io/collections/norfolk-southern/open-norfolk-southern-gate-receipts-api/)
+- [Norfolk Southern Gate Receipts Shipment Status API](https://apis.io/collections/norfolk-southern/open-norfolk-southern-shipment-status-api/)
+- [Norfolk Southern Shipment Status Gate Receipts Trip Plan API](https://apis.io/collections/norfolk-southern/open-norfolk-southern-trip-plan-api/)
 
-### Norfolk Southern Trip Plan API
+#### Security (1)
 
-Track a shipment's progress on its planned route with its current ETA, future movements, and completed movements.
+Authentication, trust centre, and vulnerability disclosure.
 
-- **Human URL:** [https://developer.nscorp.com/](https://developer.nscorp.com/)
-- **Base URL:** `https://api.nscorp.com`
+- [Norfolk Southern Domain Security](https://apis.io/security/norfolk-southern/norfolk-southern-domain-security/)
 
-#### Tags
+#### Plans and pricing (1)
 
-- ETA
-- Railroad
-- Route
-- Trip Plan
+Published plans, tiers and prices.
 
-#### Properties
+- [Norfolk Southern Plans Pricing](https://apis.io/plans/norfolk-southern/norfolk-southern-plans-pricing/)
 
-- [Documentation](https://developer.nscorp.com/)
-- [Postman Collection](collections/norfolk-southern-shipment-status-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/norfolk-southern-shipment-status-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### Rate limits (1)
 
-### Norfolk Southern Gate Receipts API
+Published request limits.
 
-Access gate receipt data, terminal, and driver information, as well as the pickup numbers for equipment.
+- [Norfolk Southern Rate Limits](https://apis.io/rate-limits/norfolk-southern/norfolk-southern-rate-limits/)
 
-- **Human URL:** [https://developer.nscorp.com/](https://developer.nscorp.com/)
-- **Base URL:** `https://api.nscorp.com`
+#### FinOps (1)
 
-#### Tags
+What the API costs to run, by operation.
 
-- Gate Receipts
-- Intermodal
-- Terminal
+- [Norfolk Southern Finops](https://apis.io/finops/norfolk-southern/norfolk-southern-finops/)
 
-#### Properties
+## Where to find this API
 
-- [Documentation](https://developer.nscorp.com/)
-- [Postman Collection](collections/norfolk-southern-shipment-status-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/norfolk-southern-shipment-status-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-## Common Properties
-
-- [GitHub Organization](https://github.com/Norfolk-Southern)
-- [LinkedIn](https://www.linkedin.com/company/norfolk-southern)
-- [Portal](https://developer.nscorp.com/)
 - [Website](https://www.norfolksouthern.com/)
-- [Innovation](https://www.norfolksouthern.com/en/innovation)
-- [Support](mailto:CSHelpDesk@NSCORP.COM)
+- [GitHub](https://github.com/Norfolk-Southern)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** API Evangelist
-**Email:** info@apievangelist.com
-**URL:** https://apievangelist.com
+**Kin Score 22.0** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 47.1 |
+| Contract governance | 0.0 |
+| Operational transparency | 7.9 |
+| Developer ergonomics | 14.3 |
+| Access clarity | 5.3 |
+
+**Agent readiness 17.8** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | na |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | na |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | na |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 5.9** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/norfolk-southern/](https://apis.io/providers/norfolk-southern/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Norfolk Southern: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/norfolk-southern/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
